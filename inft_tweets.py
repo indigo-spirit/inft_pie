@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import config as c 
 import tweepy
 import datetime
@@ -89,8 +91,9 @@ def tweeting_now(api,start,end,timediff,last_instance):
 			if datetime.datetime.now() < end:
 				###provide info on current instance and time to next tweet###
 				info_instance(i)
-				line = random.choice(open('inft_phrases.txt').readlines())
-				tweet=mention+' '+line+' '+hash1+' '+str(i)+' '+hash2
+				name = random.choice(open('inft_names.txt').readlines())
+				line = random.choice(open('inft_attributes.txt').readlines())
+				tweet=mention+' '+name+' '+line+' in '+hash1+' '+str(i)+' '+hash2
 				sleepy_time=post_tweets(api,i,tweet)
 			else:
 				instance=i
@@ -109,8 +112,8 @@ def main():
 	api = tweepy.API(auth)
 
 	###specify start and end dates###
-	start=datetime.datetime(2016,9,25,14,25)
-	end=datetime.datetime(2016,9,25,15,34)
+	start=datetime.datetime(2016,9,26,14,25)
+	end=datetime.datetime(2016,9,26,17,56)
 	timediff=times(start,end)
 	### posts a tweet from a dataset every [interval] minutes 
 	#between specified [start] and [end] datetimes
