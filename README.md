@@ -1,2 +1,2 @@
 # inft_pie
-#1
+# tweeting is tedious, so inft_pie will do it for me!
